@@ -6,12 +6,25 @@ import { LogoIcon } from './assets/icons/LogoIcon';
 import UserName from './components/UserName/UserName';
 import Tabs from './components/Tabs/Tabs';
 import Title from './components/Title/Title';
-
+import { RatingIcon } from './assets/icons/RatingIcon';
+import { RatingEmptyIcon } from './assets/icons/RatingEmptyIcon';
+import { ShoppingBagIcon } from './assets/icons/ShoppingBagIcon';
+import { UserIcon } from './assets/icons/UserIcon';
+import { SearchIcon } from './assets/icons/SearchIcon';
+import { BurgerIcon } from './assets/icons/BurgerIcon';
+import { CloseIcon } from './assets/icons/CloseIcon';
+import { FacebookIcon } from './assets/icons/FacebookIcon';
+import { TwitterIcon } from './assets/icons/TwitterIcon';
+import { MoreIcon } from './assets/icons/MoreIcon';
+import { BackArrowIcon } from './assets/icons/BackArrowIcon';
+import { PlusIcon } from './assets/icons/PlusIcon';
+import { MinusIcon } from './assets/icons/MinusIcon';
+import { ShoppingEllipseIcon } from './assets/icons/ShoppingEllipseIcon';
+import { PopularArrowIcon } from './assets/icons/PopularArrowIcon';
 
 const App = ()=> {
   return (
     <div>
-      
               <Button title={'Primary'} type={ButtonType.Primary} onClick={()=>{}} />
           <Button title='Disabled' type={ButtonType.Primary} onClick={()=>{}} disabled/>
               <Button title={'Close'} type={ButtonType.Close} onClick={()=>{}}/>
@@ -20,9 +33,23 @@ const App = ()=> {
           <UserName username='Name Surname' />
           <Tabs />
           <LogoIcon />
-          <Title title='New Releases Books'/>
-              
-        
+          <RatingIcon />
+          <RatingEmptyIcon />
+          <Title title='New Releases Books' />
+          <ShoppingBagIcon />
+          <UserIcon />
+          <BurgerIcon />
+          <CloseIcon />
+          <FacebookIcon />
+          <TwitterIcon />
+          <MoreIcon />
+          <BackArrowIcon />
+          <PlusIcon />
+          <MinusIcon />
+          <PopularArrowIcon />
+          <ShoppingEllipseIcon />
+          <SearchIcon />
+
     </div>
   );
 }
