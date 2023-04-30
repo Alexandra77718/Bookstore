@@ -1,0 +1,48 @@
+@import "src/assets/colors";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid $gray;
+  width: 1120px;
+  height: 48px;
+  margin-top: 72px;
+}
+
+.tab {
+  @font-face {
+    font-family: "HeliosLightC";
+    src: url("../../fonts/HeliosLightC.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  line-height: 24px;
+  width: 161px;
+  height: 48px;
+  color: $secondary;
+
+  gap: 10px;
+  &:hover {
+    cursor: pointer;
+    color: $primary;
+  }
+}
+
+.activeTab {
+  box-shadow: 0px 2px 0px $primary;
+}
+
+.disabled {
+  color: $gray;
+  &:hover {
+    cursor: not-allowed;
+    color: $gray;
+  }
+}
