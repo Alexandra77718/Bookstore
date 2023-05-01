@@ -1,24 +1,76 @@
+@import "src/assets/colors.scss";
+
 .cardContainer {
-    width: 352px;
-    height: 454px;
+  width: 352px;
+  height: 454px;
+  object-fit: contain;
 }
 
 .imageContainer {
-    width: 352px;
-    height: 264px;
+  display: flex;
+  justify-content: center;
+  width: 352px;
+  height: 264px;
+  background-color: $blue;
+}
+.image {
+  width: 226px;
+  height: 264px;
 }
 .titleContainer {
-    width: 334px;
-    height: 64px;
-    margin-top: 20px;
+  width: 334px;
+  height: 64px;
+  margin-top: 20px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
 }
-.authorContainer {
-    width: 226px;
-    height: 24px;
-    margin-top: 8px;
+.authorsContainer {
+  width: 226px;
+  height: 24px;
+  margin-top: 8px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
 }
 .priceContainer {
-    width: 352px;
-    height: 33px;
-    margin-top: 40;
+    display: flex;
+    justify-content: space-between;
+  width: 352px;
+  height: 33px;
+  margin-top: 40px;
 }
+.price {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  width: 53px;
+  height: 32px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: $primary;
+}
+.ratingContainer {
+    display: flex;
+    gap: 10px;
+  width: 109px;
+  height: 13px;
+}
+styles.ratingStar {
+    width: 14px;
+    height: 13px;
+}
+@font-face {
+  font-family: "Helios";
+  src: url("../../fonts/HeliosLightC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
