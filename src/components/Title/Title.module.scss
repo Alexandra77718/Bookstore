@@ -1,0 +1,18 @@
+@import "src/assets/mixins.scss";
+@import "src/assets/colors.scss";
+
+.titleContainer {
+  width: 373px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-family: "Bebas Neue";
+  font-size: 56px;
+  font-style: normal;
+  line-height: 64px;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+

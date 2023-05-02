@@ -1,0 +1,63 @@
+@import 'src/assets/mixins.scss';
+@import 'src/assets/colors.scss';
+
+
+.primaryButton{
+@include button();
+    &:hover {
+    background-color: $primary-secondary;
+}
+}
+.closeButton{
+    @include button();
+    background-color: $primary-secondary;
+    width: 56px;
+    height: 56px;
+
+}
+.likeButton{
+    @include button();
+    background-color: $secondary;
+    width: 56px;
+    height: 56px;
+
+}
+
+.subscribeButton{
+    @include button();
+    width: 147px;
+height: 56px;
+border-radius: 0px 2px 2px 0px;
+}
+.accountSaveChangesButton {
+    @include button();
+    width: 256.77px;
+height: 56px;
+}
+.accountCancelButton {
+    width: 255.23px;
+height: 56px;
+border: 1px solid #E7E7E7;
+}
+.addToCartButton {
+    @include button();
+    width: 448px;
+height: 56px;
+}
+.checkoutButton {
+    @include button();
+    width: 256px;
+    height: 56px;
+}
+.signInButton {
+    @include button();
+    width: 480px;
+height: 56px;
+}
+.disabledButton {
+        
+       &:hover {
+           cursor: not-allowed;
+           background-color: $secondary;
+       }
+}
