@@ -3,7 +3,6 @@ import styles from './Card.module.scss';
 import { CardProps, CardSize, CardType} from './types';
 import { RatingEmptyIcon } from 'src/assets/icons/RatingEmptyIcon';
 import { RatingIcon } from 'src/assets/icons/RatingIcon';
-import { type } from 'os';
 
 export const MOCK_CARD = {
         error: "0",
@@ -30,10 +29,6 @@ export const MOCK_CARD = {
 const Card: FC<CardProps> = ({ card, size }) => {
     const { image, title, authors, year, price, rating } = card;
 
-   
-
-
-    
     return (
         <div className={styles.cardContainer}>
             <div className={styles.imageContainer}>
