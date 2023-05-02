@@ -3,7 +3,6 @@
 .cardContainer {
   width: 352px;
   height: 454px;
-  object-fit: contain;
 }
 
 .imageContainer {
@@ -11,6 +10,7 @@
   justify-content: center;
   width: 352px;
   height: 264px;
+  object-fit: contain;
   background-color: $blue;
 }
 .image {
