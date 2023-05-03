@@ -1,0 +1,40 @@
+@import "src/assets/colors";
+
+.headerContainer {
+    width: 1120px;
+    height: 103px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $gray;
+    align-items: center;
+}
+.logo {
+  width: 137.51px;
+  height: 28.64px;
+}
+.searchContainer {
+    display: flex;
+    width: 542px;
+    height: 56px;
+}
+
+.searchIcon {
+    width: 56px;
+    height: 56px;
+    padding: 18px;
+}
+.iconsContainer {
+    width: 143px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button {
+    height: 56px;
+    width: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }

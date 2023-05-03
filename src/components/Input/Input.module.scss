@@ -1,0 +1,54 @@
+@import "src/assets/colors";
+
+.container {
+  width: 480px;
+  height: 132px;
+}
+.title {
+    // height: 32px;
+    font-family: 'Helios';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    color: $primary;
+}
+.input {
+  width: 480px;
+  height: 56px;
+  border: 1px solid $gray;
+  &:focus {
+    outline: none;
+    border: 2px solid $gray;
+  }
+  &::placeholder {
+    font-family: "Helios";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    color: $secondary;
+  }
+}
+.disabled {
+  background: $gray;
+  cursor: not-allowed;
+}
+
+.valid {
+  border: 1px solid $red;
+}
+.validText {
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: $red;
+}

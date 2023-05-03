@@ -1,9 +1,9 @@
- import React, { FC, useEffect, useState} from 'react';
+ import React, { useEffect, useState} from 'react';
 import styles from './Home.module.scss';
 import Title from 'src/components/Title/Title';
-import Tabs from 'src/components/Tabs/Tabs';
 import CardsList from 'src/components/CardsList/CardsList';
 import { CardType } from 'src/components/Card/types';
+
 
 export const MOCK_ARRAY = [
     {
@@ -279,7 +279,9 @@ const Home = () => {
     return (
       <div>
         <Title title={"New Releases Books"} />
-        <CardsList cardsList={cardsList} />
+            <CardsList cardsList={cardsList} />
+            
+            
       </div>
     );
 }
