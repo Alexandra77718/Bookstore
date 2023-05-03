@@ -3,9 +3,9 @@ import styles from './Tabs.module.scss';
 import classNames from 'classnames';
 
 enum TabsNames {
-    Description = 0,
-    Authors = 1,
-    Reviews =2,
+    Description,
+    Authors,
+    Reviews,
 } 
 
 const TABS_LIST = [

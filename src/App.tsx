@@ -4,20 +4,14 @@ import Card from "./components/Card/Card";
 import { CardSize } from "./components/Card/types";
 import { CardProps } from "./components/Card/types";
 import Home from "./pages/Home/Home";
-
+import Router from "./pages/Router";
 
 const App = () => {
-    //   const [username, setUsername] = useState("");
-
-    //   const onChange = (value: string) => {
-    //     setUsername(value);
-    //   };
 
     return (
         <div className={styles.Container}>
-          <Home />
-      
-    </div>
+            <Router />        
+        </div>
   );
 };
 
