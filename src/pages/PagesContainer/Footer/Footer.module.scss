@@ -1,0 +1,16 @@
+@import "src/assets/colors";
+.footer {
+  width: 1120px;
+  height: 92px;
+  border-top: 1px solid $gray;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+  align-items: center;
+  margin-top: 72px;
+}

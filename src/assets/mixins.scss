@@ -1,16 +1,18 @@
 @mixin button {
-box-sizing: border-box;
-font-family: 'Bebas Neue';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 24px;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-letter-spacing: 0.05em;
-color: #FFFFFF;
-background-color: $primary;
-cursor: pointer;
+  width: 480px;
+  height: 56px;
+  box-sizing: border-box;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  background-color: $primary;
+  cursor: pointer;
 }
