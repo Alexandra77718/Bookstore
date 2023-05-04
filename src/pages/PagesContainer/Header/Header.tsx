@@ -58,9 +58,11 @@ const Header = () => {
           <LogoIcon />
         </div>
         <div className={styles.searchContainer}>
-          <Input value={""} onChange={onChange} placeholder="Search" />
-          <div className={styles.searchIcon}>
-            <SearchIcon />
+          <div className={styles.inputWithButton}>
+            <input placeholder="Your email" className={styles.input}></input>
+            <div className={styles.searchIcon}>
+              <SearchIcon />
+            </div>
           </div>
         </div>
         <div className={styles.iconsContainer}>
@@ -69,12 +71,12 @@ const Header = () => {
           <UserIcon />
         </div>
       </div>
-      <Button
+      {/* <Button
         title={isOpened ? <CloseIcon /> : <BurgerIcon />}
         onClick={onClickMenuButton}
         type={ButtonType.Close}
         className={styles.button}
-      />
+      /> */}
     </>
   );
 };

@@ -5,20 +5,28 @@
   height: 132px;
 }
 .title {
-    // height: 32px;
-    font-family: 'Helios';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 32px;
-    display: flex;
-    align-items: center;
-    color: $primary;
+  // height: 32px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: $primary;
 }
 .input {
   width: 480px;
   height: 56px;
   border: 1px solid $gray;
+  box-sizing: border-box;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  color: $secondary;
+  padding-left: 20px;
   &:focus {
     outline: none;
     border: 2px solid $gray;
@@ -32,6 +40,8 @@
     display: flex;
     align-items: center;
     color: $secondary;
+    padding: 14px 10px 10px 0px;
+    box-sizing: border-box;
   }
 }
 .disabled {

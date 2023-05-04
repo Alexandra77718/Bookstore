@@ -1,0 +1,57 @@
+@import "src/assets/colors";
+@import 'src/assets/mixins';
+
+.container {
+  width: 1120px;
+  height: 288px;
+  background-color: $purple;
+  padding: 64px 56px;
+  box-sizing: border-box;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: $secondary;
+  @font-face {
+    font-family: "DIN Pro";
+    src: url("../../fonts/DINPro-Light.ttf");
+  }
+}
+.inputWithButton {
+  margin-top: 32px;
+  width: 992px;
+  height: 56px;
+  display: flex;
+  box-sizing: border-box;
+}
+.input {
+  border: none;
+  outline: none;
+  width: 845px;
+  height: 56px;
+  font-family: "DIN Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+  box-sizing: border-box;
+  padding-left: 18px;
+  &:hover {
+    margin-top: -2px;
+    margin-left: -2px;
+    border: 2px solid $gray;
+    width: 848px;
+    height: 59px;
+  }
+}
+.button {
+    @include button(); 
+  width: 147px;
+  height: 56px;
+  font-size: 18px;
+  
+}
