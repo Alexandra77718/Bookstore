@@ -7,6 +7,19 @@ import Button from "src/components/Button";
 import { ButtonType } from "src/utils/@globalTypes";
 import { NavLink } from "react-router-dom";
 import { RoutesList } from "../Router";
+import Tabs from "src/components/Tabs/Tabs";
+enum TabsNames {
+    Description,
+    Authors,
+    Reviews,
+    SignIn,
+    SignUp,
+} 
+
+enum TabsBlock {
+    Description,
+        SignIn,
+}
 
 const SingIn = () => {
   const [email, setEmail] = useState("");
@@ -20,12 +33,9 @@ const SingIn = () => {
   };
 
   return (
-    <div>
-      <div className={classNames(styles.title)}>
-        <Title title={"Sing In"} />
-      </div>
-      <div className={styles.wrapper}>
-        <div className={classNames(styles.inputContainer)}>
+      <div className={styles.container}>
+          <Tabs title="Sign In" key={TabsNames.SignIn} tabsBlock={TabsBlock.SignIn} />
+          <Tabs title="Description" key={TabsNames.Description} tabsBlock={TabsBlock.Description} />
           <Input
             value={email}
             onChange={onChangeEmail}
@@ -40,14 +50,7 @@ const SingIn = () => {
               type={ButtonType.Primary}
             />
           </div>
-          <div className={classNames(styles.singUp)}>
-            <NavLink to={RoutesList.SignUp} className={styles.navButton}>
-              Sign Up
-            </NavLink>
-          </div>
         </div>
-      </div>
-    </div>
   );
 };
 

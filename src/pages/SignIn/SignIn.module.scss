@@ -1,6 +1,12 @@
 @import "src/assets/colors";
-@import 'src/assets/mixins';
+@import "src/assets/mixins";
 
 .button {
   @include button();
+}
+.container {
+  margin: 196px auto;
+  border: 1px solid $gray;
+  width: 544px;
+  height: 480px;
 }

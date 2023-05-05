@@ -1,4 +1,4 @@
-import React, {useState, FC } from 'react';
+import React, {useState, FC, ReactNode } from 'react';
 import styles from './Tabs.module.scss';
 import classNames from 'classnames';
 
@@ -6,9 +6,11 @@ enum TabsNames {
     Description,
     Authors,
     Reviews,
+    SignIn,
+    SignUp,
 } 
 
-const TABS_LIST = [
+export const TABS_LIST_DESCRIPTION = [
     {
         title: 'Description',
         disabled: false,
@@ -25,16 +27,46 @@ const TABS_LIST = [
         key: TabsNames.Reviews,
     },
 ]
+export const TABS_LIST_SIGN_IN = [
+    {
+        title: 'Sign In',
+        disabled: false,
+        key: TabsNames.SignIn,
+    },
+    {
+        title: 'Sign Up',
+        disabled: false,
+        key: TabsNames.SignUp,
+    },
+]
+export type TabsProps =  {
+    title: string,
+    key: TabsNames;
+    disabled?: boolean,
+    tabsBlock: ReactNode;
+}
+enum TabsBlock {
+    Description,
+        SignIn,
+}
 
-const Tabs = () => {
+const TabsStyles = {
+    [TabsBlock.Description]: styles.Description,
+    [TabsBlock.SignIn]: styles.SignIn,
+
+}
+const Tabs: FC<TabsProps> = ({ title, key, disabled, tabsBlock}) => {
     const [activeTab, setActiveTab] = useState(TabsNames.Description);
     const onTabClick = (key: TabsNames) => () => setActiveTab(key);
 
-    return (
-        <div className={styles.container}>
-            {TABS_LIST.map((tab) => {
+    const [activeTabSignIn, setActiveTabSignIn] = useState(TabsNames.SignIn);
+    const onTabSignInClick = (key: TabsNames) => () => setActiveTabSignIn(key);
+
+    return tabsBlock === TabsBlock.Description ? (
+        <div className={styles.containerDescription}>
+            {TABS_LIST_DESCRIPTION.map((tab) => {
                 return (
-                    <div key={tab.key} className={classNames(styles.tab, {
+                    <div key={tab.key} className={classNames(styles.DescriptionTab, {
                         [styles.activeTab]: activeTab === tab.key,
                         [styles.disabled]: tab.disabled,
                     })}
@@ -43,7 +75,20 @@ const Tabs = () => {
                         </div>
                 )
             })}
-
+        </div>
+    ) : (
+        <div className={styles.containerSignIn}>
+            {TABS_LIST_SIGN_IN.map((tab) => {
+                return (
+                    <div key={tab.key} className={classNames(styles.SignInTab, {
+                        [styles.activeTab]: activeTabSignIn === tab.key,
+                        [styles.disabled]: tab.disabled,
+                    })}
+                        onClick={tab.disabled ? undefined : onTabSignInClick(tab.key)}>
+                        {tab.title}
+                        </div>
+                )
+            })}
         </div>
     )
 }
