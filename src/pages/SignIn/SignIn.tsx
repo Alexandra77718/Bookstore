@@ -44,7 +44,7 @@ const SingIn = () => {
             placeholder="Your email"
           />
           <Input
-            value={email}
+            value={password}
             onChange={onChangeEmail}
             type={"text"}
             title="Password"
