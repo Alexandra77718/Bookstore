@@ -32,9 +32,6 @@
   }
 }
 
-.activeTab {
-  box-shadow: 0px 2px 0px $primary;
-}
 
 .disabled {
   color: $gray;
@@ -66,8 +63,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 letter-spacing: 0.05em;
-color: $primary;
+color: $secondary;
 }
 .activeTab {
     border-bottom: 2px solid $primary;
+    color: $primary;
   }
