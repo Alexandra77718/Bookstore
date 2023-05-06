@@ -8,7 +8,7 @@
   margin: 196px auto;
   border: 1px solid $gray;
   width: 544px;
-  height: 480px;
+  height: 656px;
 }
 .inputContainer {
     width: 544px;
@@ -16,10 +16,3 @@
     padding: 32px  32px 40px 32px;
     box-sizing: border-box;
 }
-.forgotPassword{
-    margin: 16px 0 40px;
-    &:hover {
-        color: $red;
-    }
-}
-

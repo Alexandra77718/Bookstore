@@ -4,10 +4,11 @@ import classNames from 'classnames';
 import styles from './Title.module.scss';
 
 type TitleProps = {
-    title: string;
+    title: string,
+    className?: string,
 };
 
-const Title: FC<TitleProps> = ({ title }) => {
+const Title: FC<TitleProps> = ({ title, className }) => {
     return(
         <span className={styles.title}>{title}</span>
     )

@@ -35,21 +35,31 @@ const SingIn = () => {
   return (
       <div className={styles.container}>
           <Tabs title="Sign In" key={TabsNames.SignIn} tabsBlock={TabsBlock.SignIn} />
-          <Tabs title="Description" key={TabsNames.Description} tabsBlock={TabsBlock.Description} />
-          <Input
+          <div className={styles.inputContainer}>
+            <Input
             value={email}
             onChange={onChangeEmail}
             type={"text"}
             title="Email"
             placeholder="Your email"
           />
+          <Input
+            value={password}
+            onChange={onChangeEmail}
+            type={"text"}
+            title="Password"
+            placeholder="Your password"
+          />
+          <div className={styles.forgotPassword}>{'Forgot password ?'}</div>   
           <div className={styles.button}>
             <Button
               title={"Sign In"}
               onClick={() => {}}
               type={ButtonType.Primary}
             />
+          </div>  
           </div>
+          
         </div>
   );
 };
