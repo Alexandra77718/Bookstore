@@ -1,0 +1,41 @@
+@import "src/assets/colors";
+@import "src/assets/mixins";
+
+.container {
+    width: 1120px;
+    height: 699px;
+    border-bottom: 1px solid $gray;
+}
+.back {
+    margin: 77px 0 37px 0;
+}
+
+.title {
+    font-family: "Bebas Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 48px;
+}
+.inputContainer{
+    margin-top: 16px;
+    display: flex;
+    gap: 0 32px
+}
+.buttonContainer {
+  margin-top: 48px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 32px;
+}
+.button{
+  @include button();  
+  width: 257px;
+}
+.buttonWhite{
+    background-color: #fff;
+    border: 1px solid $gray;
+    color: $primary;
+    width: 257px;
+}

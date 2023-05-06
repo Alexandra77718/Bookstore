@@ -1,12 +1,14 @@
 import React from "react";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PagesContainer from "src/pages/PagesContainer/PagesContainer";
 import Home from "./Home";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import ResetPassword from "./ResetPassword/ResetPassword";
-import Confirm from './Confirm';
+import Confirm from "./Confirm";
+import NewPassword from "./NewPassword/NewPassword";
+import Account from "./Account/Account";
 
 export enum RoutesList {
   Home = "/",
@@ -21,9 +23,11 @@ export enum RoutesList {
   Confirm = "/reset/confirm",
   NewPassword = "/reset/new-password",
   ChangedPassword = "/sign-in/success",
+  Default = "*",
 }
 
 const Router = () => {
+  const isLoggedIn = false;
   return (
     <BrowserRouter>
       <Routes>
@@ -33,6 +37,21 @@ const Router = () => {
           <Route path={RoutesList.SignUp} element={<SignUp />} />
           <Route path={RoutesList.Reset} element={<ResetPassword />} />
           <Route path={RoutesList.Confirm} element={<Confirm />} />
+          <Route path={RoutesList.NewPassword} element={<NewPassword />} />
+          <Route path={RoutesList.Account} element={<Account />} />
+          {/* <Route
+            path={RoutesList.Cart}
+            element={
+              isLoggedIn ? <Cart /> : <Navigate to={RoutesList.SignIn} />
+            }
+          /> */}
+          {/* <Route
+            path={RoutesList.Favorites}
+            element={
+              isLoggedIn ? <Favotites /> : <Navigate to={RoutesList.SignIn} />
+            }
+          /> */}
+              <Route path={RoutesList.Default} element={<div>404 NOT FOUND</div>} />     
         </Route>
       </Routes>
     </BrowserRouter>
