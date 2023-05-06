@@ -1,0 +1,1 @@
+import {CardListType} from "src/utils/@globalTypes";
