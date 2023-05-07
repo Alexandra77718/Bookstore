@@ -1,0 +1,142 @@
+@import "src/assets/colors.scss";
+.cardContainer {
+  width: 1120px;
+  height: 994px;
+}
+.titlePageContainer {
+  width: 1080px;
+  height: 128px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.titlePage {
+  font-family: "Bebas Neue";
+  font-size: 56px;
+  font-style: normal;
+  line-height: 64px;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  color: $primary;
+}
+.imageInfo {
+  width: 1120px;
+  height: 472px;
+  display: flex;
+  gap: 0 128px;
+}
+.infoContainer {
+  width: 448px;
+  height: 472px;
+  gap: 128px;
+}
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 544px;
+  height: 472px;
+  object-fit: contain;
+  background-color: $orange;
+  position: relative;
+}
+.btnLike {
+  width: 56px;
+  height: 56px;
+  background-color: $primary;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: 1px solid $primary;
+}
+.image {
+  width: 300px;
+  height: 350px;
+}
+.content {
+  width: 1120px;
+  height: 352px;
+}
+.iconContainer {
+  width: 120px;
+  height: 20px;
+  margin-top: 50px;
+  display: flex;
+  gap: 31px;
+  margin-bottom: 74px;
+}
+.priceString {
+  margin-top: 40px;
+  width: 448px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.price {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: $primary;
+}
+.String {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Helios";
+  @font-face {
+    font-family: "Helios";
+    src: url("../../fonts/HeliosLightC.ttf");
+  }
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+}
+.detail {
+  color: $secondary;
+  text-align: left;
+}
+.value {
+  color: $primary;
+  text-align: right;
+}
+.button {
+  width: 448px;
+  height: 56px;
+  margin: 55px 0 23px;
+}
+.more {
+  color: $primary;
+  margin-top: 8px;
+  font-family: "Helios";
+  @font-face {
+    font-family: "Helios";
+    src: url("../../fonts/HeliosLightC.ttf");
+  }
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  display: flex;
+  gap: 0 12px;
+  align-items: center;
+}
+.preview {
+  width: 448px;
+  display: flex;
+  justify-content: center;
+  font-family: "Helios";
+  @font-face {
+    font-family: "Helios";
+    src: url("../../fonts/HeliosLightC.ttf");
+  }
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  color: $primary;
+  margin-top: 8px;
+}

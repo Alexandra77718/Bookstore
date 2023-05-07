@@ -10,11 +10,13 @@ import NewPassword from "./NewPassword/NewPassword";
 import Account from "./Account/Account";
 import Favorites from "./Favorites/Favorites";
 import YourCart from "./YourCart/YourCart";
+import Search from "./Search/Search";
+import BookPage from "./Book/BookPage";
 
 export enum RoutesList {
   Home = "/",
-  Search = "/search",
-  Book = "/search/:{isbn13}",
+  Search = "/search/{query}/{page}",
+  Book = "/books",
   Cart = "/cart",
   Favorites = "/favorites",
   Account = "/account",
@@ -40,20 +42,10 @@ const Router = () => {
           <Route path={RoutesList.Confirm} element={<Confirm />} />
           <Route path={RoutesList.NewPassword} element={<NewPassword />} />
           <Route path={RoutesList.Account} element={<Account />} />
-          <Route path={RoutesList.Cart} element={<YourCart />} />
-
-          {/* <Route
-            path={RoutesList.Cart}
-            element={
-              isLoggedIn ? <Cart /> : <Navigate to={RoutesList.SignIn} />
-            }
-          /> */}
-          <Route
-            path={RoutesList.Favorites}
-            element={
-              isLoggedIn ? <Favorites /> : <Navigate to={RoutesList.SignIn} />
-            }
-          />
+          <Route path={RoutesList.Search} element={<Search />} />
+          <Route path={RoutesList.Book} element={<BookPage />} />
+          <Route path={RoutesList.Cart} element={isLoggedIn ? <YourCart /> : <Navigate to={RoutesList.SignIn} />} />
+          <Route path={RoutesList.Favorites} element={isLoggedIn ? <Favorites /> : <Navigate to={RoutesList.SignIn} />} />
           <Route path={RoutesList.Default} element={<div>404 NOT FOUND</div>} />
         </Route>
       </Routes>
