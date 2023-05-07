@@ -1,18 +1,22 @@
 .container {
-    width: 1120px;
-    height: 2216px;
+  width: 1120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+ 
 }
 .titleContainer {
-    width: 1120px;
-    height: 128px;
-    margin-top: 72px;
+  width: 1120px;
+  height: 128px;
+
 }
 
 .cardsContainer {
-    margin-top: 49px;
     width: 1120px;
-    height: 2032px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 49px 32px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 49px 32px;
+  margin-top: 49px;
 }

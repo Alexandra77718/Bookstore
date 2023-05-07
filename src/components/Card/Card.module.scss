@@ -3,6 +3,8 @@
 .cardContainer {
   width: 352px;
   height: 454px;
+  gap: 49px 32px; 
+  
 }
 
 .imageContainer {
@@ -23,11 +25,11 @@
   margin-top: 20px;
   font-family: "Bebas Neue";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
 }
-.authorsContainer {
+.authorContainer {
   width: 226px;
   height: 24px;
   margin-top: 8px;
@@ -39,38 +41,253 @@
   color: $secondary;
 }
 .priceContainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   width: 352px;
   height: 33px;
   margin-top: 40px;
 }
 .price {
   font-family: "Bebas Neue";
-  font-style: normal;
   width: 53px;
   height: 32px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   color: $primary;
 }
 .ratingContainer {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
   width: 109px;
   height: 13px;
 }
 styles.ratingStar {
-    width: 14px;
-    height: 13px;
+  width: 14px;
+  height: 13px;
 }
 @font-face {
   font-family: "Helios";
-  src: url("../../fonts/HeliosLightC.ttf") format("truetype");
+  src: url("../../fonts/HeliosLightC.ttf");
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
 }
+// Styles for Main
 
+.mainContainer {
+  width: 352px;
+  height: 454px;
+}
+
+.mainImageContainer {
+  display: flex;
+  justify-content: center;
+  width: 352px;
+  height: 264px;
+  object-fit: contain;
+  background-color: $blue;
+}
+.mainImage {
+  width: 226px;
+  height: 264px;
+}
+.mainTitle {
+  width: 334px;
+  height: 64px;
+  margin-top: 20px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+}
+.mainAuthor {
+  width: 226px;
+  height: 24px;
+  margin-top: 8px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+}
+.mainPriceContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 352px;
+  height: 33px;
+  margin-top: 40px;
+}
+.mainPrice {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  width: 53px;
+  height: 32px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: $primary;
+}
+.mainRatingContainer {
+  display: flex;
+  gap: 10px;
+  width: 109px;
+  height: 13px;
+}
+
+//   Styles for YourCart
+
+.yourCartContainer {
+    display: flex;
+  width: 1120px;
+  height: 241px;
+  border-bottom: 1px solid $gray;
+}
+
+.yourCartImageContainer {
+  display: flex;
+  justify-content: center;
+  width: 256px;
+  height: 192px;
+  object-fit: contain;
+  background-color: $blue;
+}
+.yourCartImage {
+  width: 164px;
+  height: 192px;
+}
+.yourCartTitle {
+  width: 450px;
+  height: 32px;
+  margin: 20px 0 8px 32px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+}
+.yourCartAuthor {
+  width: 226px;
+  height: 24px;
+  margin-top: 8px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+}
+
+.yourCartPriceContainer {
+  width: 87px;
+  height: 60px;
+  margin: 98px 0 0 130px;
+}
+.yourCartPrice {
+  font-family: "Bebas Neue";
+  width: 53px;
+  height: 32px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 60px;
+  color: $primary;
+}
+
+// Styles for Favorites
+.favoritesContainer {
+    display: flex;
+  width: 1120px;
+  height: 241px;
+  border-bottom: 1px solid $gray;
+}
+
+.favoritesImageContainer {
+  display: flex;
+  justify-content: center;
+  width: 256px;
+  height: 192px;
+  object-fit: contain;
+  background-color: $blue;
+}
+.favoritesImage {
+  width: 164px;
+  height: 192px;
+}
+.favoritesTitle {
+  width: 450px;
+  height: 32px;
+  margin: 20px 0 8px 32px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+}
+.favoritesAuthor {
+  width: 226px;
+  height: 24px;
+  margin-top: 8px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+}
+.favoritesPriceContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 351px;
+  height: 32px;
+  margin: 114px 0 0 130px;
+}
+.favoritesPrice {
+  font-family: "Bebas Neue";
+  width: 53px;
+  height: 32px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 60px;
+  color: $primary;
+}
+.favoritesRatingContainer {
+  display: flex;
+  gap: 10px;
+  width: 109px;
+  height: 13px;
+}
+
+//   Styles for SearchShort
+.searchShortContainer {
+  width: 542px;
+  height: 99px;
+  border-bottom: 1px solid $gray;
+}
+.searchShortImageContainer {
+  display: flex;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
+  object-fit: contain;
+  background-color: $blue;
+}
+.searchShortImage {
+  width: 52px;
+  height: 60px;
+}
+.searchShortTitle {
+  width: 400px;
+  height: 32px;
+  margin: 16px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+}

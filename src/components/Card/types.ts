@@ -29,5 +29,5 @@ export enum CardSize {
 
 export type CardProps = {
     card: CardType;
-    size: CardSize;
+    size?: CardSize;
 }
