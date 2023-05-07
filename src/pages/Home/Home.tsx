@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
 import Title from "src/components/Title/Title";
 import CardsList from "src/components/CardsList/CardsList";
-import { CardType } from "src/components/Card/types";
+import { CardSize, CardType } from "src/components/Card/types";
 import Subscribe from "src/components/Subscribe/Subscribe";
 
 export const MOCK_ARRAY = [
   {
     error: "0",
-    title: "Securing DevOps",
+    title: "Robot Operating System (ROS) for Absolute Beginners ",
     subtitle: "Security in the Cloud",
     authors: "Julien Vehent",
     publisher: "Manning",
@@ -28,7 +28,7 @@ export const MOCK_ARRAY = [
   },
   {
     error: "0",
-    title: "Securing DevOps",
+    title: "Robot Operating System (ROS) for Absolute Beginners ",
     subtitle: "Security in the Cloud",
     authors: "Julien Vehent",
     publisher: "Manning",
@@ -48,7 +48,7 @@ export const MOCK_ARRAY = [
   },
   {
     error: "0",
-    title: "Securing DevOps",
+    title: "Robot Operating System (ROS) for Absolute Beginners ",
     subtitle: "Security in the Cloud",
     authors: "Julien Vehent",
     publisher: "Manning",
@@ -278,7 +278,7 @@ const Home = () => {
   return (
     <div>
       <Title title={"New Releases Books"} />
-      <CardsList cardsList={cardsList} />
+          <CardsList cardsList={cardsList} size={CardSize.Main} />
       <Subscribe />
     </div>
   );

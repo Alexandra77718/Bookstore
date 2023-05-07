@@ -1,0 +1,79 @@
+@import "src/assets/colors";
+@import "src/assets/mixins";
+
+
+.back {
+  margin: 77px 0 37px 0;
+}
+
+.title {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 48px;
+}
+.lastChild{
+    width: 1120px;
+    height: 206px;
+    display: flex;
+    justify-content: end;
+}
+.totalContainer {
+  width: 256px;
+  height: 206px;
+ 
+}
+.sumTotal,
+.vat {
+  width: 256px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.vat {
+  margin-top: 17px;
+}
+.Total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  width: 256px;
+  height: 60px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 60px;
+}
+.button {
+  margin-top: 24px;
+  @include button();
+  width: 256px;
+  height: 56px;
+  font-size: 24px;
+}
+.textSumTotal,
+.textVat {
+  width: 70px;
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $secondary;
+}
+.priceSumTotal,
+.priceVat {
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100px;
+  text-align: right;
+}
+.priceTotal {
+  text-align: right;
+}
