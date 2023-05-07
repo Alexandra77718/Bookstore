@@ -1,0 +1,30 @@
+
+.titleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 72px;
+    width: 1120px;
+    height: 60px;
+}
+.arrowContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     height: 60px;
+     width: 60px;
+}
+.arrowBack{
+    margin-top: 8px;
+}
+.arrow{
+    transform: rotate(180deg);
+    
+}
+.cardContainer{
+    width: 1120px;
+    height: 500px;
+    margin: 49px 0 82px;
+    box-sizing: border-box;
+    overflow: hidden;
+}

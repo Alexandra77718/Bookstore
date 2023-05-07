@@ -6,7 +6,7 @@
   align-items: flex-start;
   gap: 10px;
   border-bottom: 1px solid $gray;
-  width: 1120px;
+  width: 498px;
   height: 48px;
   margin-top: 72px;
 }
@@ -18,9 +18,14 @@
     font-weight: 400;
     font-size: 16px;
   }
+  font-family: "Helios";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
   display: flex;
   justify-content: center;
-    line-height: 24px;
+  line-height: 24px;
   width: 161px;
   height: 48px;
   color: $secondary;
@@ -31,7 +36,6 @@
     color: $primary;
   }
 }
-
 
 .disabled {
   color: $gray;
@@ -44,28 +48,27 @@
 // SignIn styles
 
 .containerSignIn {
-    width: 544px;
-    height: 70px;
-    border-bottom: 1px solid $gray;
-    display: flex;
-    justify-content: center;
-
+  width: 544px;
+  height: 70px;
+  border-bottom: 1px solid $gray;
+  display: flex;
+  justify-content: center;
 }
-.SignInTab{
-    width: 239px;
-    height: 70px;
-    font-family: 'Bebas Neue';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 24px;
-display: flex;
-align-items: center;
-justify-content: center;
-letter-spacing: 0.05em;
-color: $secondary;
+.SignInTab {
+  width: 239px;
+  height: 70px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  color: $secondary;
 }
 .activeTab {
-    border-bottom: 2px solid $primary;
-    color: $primary;
-  }
+  border-bottom: 2px solid $primary;
+  color: $primary;
+}
