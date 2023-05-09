@@ -13,6 +13,18 @@ import { LikeCartIcon } from "src/assets/icons/LikeCartIcon";
 import Button from "../Button/Button";
 import { MoreDetails } from "src/assets/icons/MoreDetails";
 import Similar from "../Similar/Similar";
+import store from "src/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  CardSelectors,
+  setSavedPosts,
+  setStatus,
+} from "src/redux/reducers/cardSlice";
+import { ActiveLikeCartIcon } from "src/assets/icons/ActiveLikeCartIcon";
+import { Navigate, useNavigate } from "react-router-dom";
+import { RoutesList } from "src/pages/Router";
+
+
 
 type BookCardProps = {
   card: CardType;
@@ -32,7 +44,33 @@ enum TabsBlock {
 }
 
 const BookCard: FC<BookCardProps> = ({ card }) => {
-  const { image, title, authors, year, price, rating } = card;
+  const { image, title, authors, year, price, rating, isbn13 } = card;
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+  const onStatusClick = () => {
+    if (card) {
+      dispatch(setStatus(card));
+    }
+  };
+
+  const likedCards = useSelector(CardSelectors.getLikedCards);
+  const likedIndex = likedCards.findIndex(
+    (post) => post.isbn13 === card.isbn13
+  );
+
+    // реализация SavedPosts
+    const onSavedCartClick= () => {
+        dispatch(setSavedPosts({ card }));
+        navigate(RoutesList.Cart);
+    };
+    
+      const savedPosts = useSelector(CardSelectors.getSavedPosts);
+      const savedPostsIndex = savedPosts.findIndex(
+        (post) => post.isbn13 === card.isbn13
+        );
+
   return (
     <div>
       <div className={styles.cardContainer}>
@@ -41,9 +79,12 @@ const BookCard: FC<BookCardProps> = ({ card }) => {
         </div>
         <div className={styles.imageInfo}>
           <div className={styles.imageContainer}>
-            <button className={styles.btnLike}>
-              <LikeCartIcon />
-            </button>
+            <div className={styles.likeContainer}>
+              <div onClick={onStatusClick}>
+                {likedIndex > -1 ? <ActiveLikeCartIcon /> : <LikeCartIcon />}
+              </div>
+            </div>
+
             <img src={image} className={styles.image} />
           </div>
           <div className={styles.infoContainer}>
@@ -69,10 +110,13 @@ const BookCard: FC<BookCardProps> = ({ card }) => {
               <div className={styles.detail}></div>
               <div className={styles.value}>{authors}</div>
             </div>
-                      <div className={styles.more}>{'More details'}<MoreDetails/></div>
+            <div className={styles.more}>
+              {"More details"}
+              <MoreDetails />
+            </div>
             <Button
               title={"Add to cart"}
-              onClick={() => {}}
+              onClick={onSavedCartClick}
               type={ButtonType.Primary}
               className={styles.button}
             />
@@ -92,8 +136,8 @@ const BookCard: FC<BookCardProps> = ({ card }) => {
         <MoreIcon />
       </div>
 
-          <Subscribe />
-          <Similar/>
+      <Subscribe />
+      <Similar />
     </div>
   );
 };

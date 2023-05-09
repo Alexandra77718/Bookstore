@@ -21,11 +21,40 @@
   height: 264px;
   object-fit: contain;
   background-color: $blue;
+  position: relative;
+  &:hover {
+    .likeContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      height: 56px;
+      background-color: $secondary;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      cursor: pointer;
+      div:hover {
+        svg > path {
+          cursor: pointer;
+          fill: $white;
+        }
+      }
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
 }
+.likeContainer {
+  display: none;
+}
+
 .mainImage {
   width: 226px;
   height: 264px;
 }
+
 .mainTitle {
   width: 334px;
   height: 64px;
@@ -75,7 +104,7 @@
 //   Styles for YourCart
 
 .yourCartContainer {
-    display: flex;
+  display: flex;
   width: 1120px;
   height: 241px;
   border-bottom: 1px solid $gray;
@@ -133,7 +162,7 @@
 
 // Styles for Favorites
 .favoritesContainer {
-    display: flex;
+  display: flex;
   width: 1120px;
   height: 241px;
   border-bottom: 1px solid $gray;
@@ -146,6 +175,7 @@
   height: 192px;
   object-fit: contain;
   background-color: $blue;
+  position: relative;
 }
 .favoritesImage {
   width: 164px;
