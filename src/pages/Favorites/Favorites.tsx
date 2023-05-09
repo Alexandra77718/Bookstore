@@ -6,19 +6,26 @@ import { ButtonType, CardSize } from "src/utils/@globalTypes";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RoutesList } from "../Router";
 import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "src/components/Card/Card";
 import { MOCK_ARRAY } from "../Home/Home";
 import CardsList from "src/components/CardsList/CardsList";
+import { CardSelectors, setStatus } from "src/redux/reducers/cardSlice";
+
+
 
 const Favorites = () => { 
+
+    const favoritesList = useSelector(CardSelectors.getLikedCards);
+    
+
     return (
         <div className={styles.container}>
             <div className={styles.back}>
           <BackArrowIcon />
         </div>
         <Title title="Favorites" />
-            <CardsList cardsList={MOCK_ARRAY} size={CardSize.Favorites} />
+            <CardsList cardsList={favoritesList} size={CardSize.Favorites} />
         </div>
     )
 }

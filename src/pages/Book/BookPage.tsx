@@ -5,6 +5,11 @@ import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
 import BookCard from "src/components/BookCard/BookCard";
 import { CardProps } from "src/components/Card/types";
 import { title } from "process";
+import { useSelector } from "react-redux";
+import { CardSelectors } from "src/redux/reducers/cardSlice";
+
+
+
 
 type CardType = {
     error?: string;
@@ -51,8 +56,6 @@ const MOCK_CARD: CardType =  {
 
 
 const BookPage = () => {
-    const [cardsList, setCardsList] = useState<CardType[]>([]);
-  
    
   
     return (

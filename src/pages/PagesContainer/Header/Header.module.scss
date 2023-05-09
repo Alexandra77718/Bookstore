@@ -62,6 +62,12 @@
   width: 20px;
   height: 20px;
   margin: 18px;
+  &:hover {
+    svg > path {
+      cursor: pointer;
+      stroke: $secondary;
+    }
+  }
 }
 .iconsContainer {
   width: 143px;
@@ -70,6 +76,12 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
+  div:hover {
+    svg > path {
+      cursor: pointer;
+      stroke: $red;
+    }
+  }
 }
 .button {
   height: 56px;

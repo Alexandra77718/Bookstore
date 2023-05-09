@@ -4,6 +4,15 @@ import { CardProps, CardSize, CardType } from "./types";
 import { RatingEmptyIcon } from "src/assets/icons/RatingEmptyIcon";
 import { RatingIcon } from "src/assets/icons/RatingIcon";
 import classNames from "classnames";
+import { LikeCartIcon } from "src/assets/icons/LikeCartIcon";
+import {
+  CardSelectors,
+  setSavedPosts,
+  setStatus,
+} from "src/redux/reducers/cardSlice";
+import { useDispatch, useSelector } from "react-redux";
+import store from "src/redux/store";
+import { ActiveLikeCartIcon } from "src/assets/icons/ActiveLikeCartIcon";
 
 const Card: FC<CardProps> = ({ card, size }) => {
   const { image, title, authors, year, price, rating, isbn13 } = card;
@@ -13,92 +22,110 @@ const Card: FC<CardProps> = ({ card, size }) => {
   const isFavorites = size === CardSize.Favorites;
   const isSearchShort = size === CardSize.SearchShort;
 
+    const dispatch = useDispatch();
+    // реализация likedCards
+  const onStatusClick = () => {
+    if (card) {
+      dispatch(setStatus(card));
+    }
+  };
+    const likedCards = useSelector(CardSelectors.getLikedCards);
+    
+    const likedIndex = likedCards.findIndex(
+        (post) => post.isbn13 === card.isbn13
+    );
+ 
   return (
+    <div
+      className={classNames({
+        [styles.mainContainer]: isMain,
+        [styles.yourCartContainer]: isYourCart,
+        [styles.favoritesContainer]: isFavorites,
+        [styles.searchShortContainer]: isSearchShort,
+      })}
+    >
       <div
         className={classNames({
-          [styles.mainContainer]: isMain,
-          [styles.yourCartContainer]: isYourCart,
-          [styles.favoritesContainer]: isFavorites,
-          [styles.searchShortContainer]: isSearchShort,
+          [styles.mainImageContainer]: isMain,
+          [styles.yourCartImageContainer]: isYourCart,
+          [styles.favoritesImageContainer]: isFavorites,
+          [styles.searchShortImageContainer]: isSearchShort,
+        })}
+      >
+        <div className={styles.likeContainer}>
+          <div onClick={onStatusClick}>
+            {likedIndex > -1 ? <ActiveLikeCartIcon /> : <LikeCartIcon />}
+          </div>
+        </div>
+        <img
+          src={image}
+          className={classNames({
+            [styles.mainImage]: isMain,
+            [styles.yourCartImage]: isYourCart,
+            [styles.favoritesImage]: isFavorites,
+            [styles.searchShortImage]: isSearchShort,
+          })}
+        ></img>
+      </div>
+      <div
+        className={classNames({
+          [styles.mainTitle]: isMain,
+          [styles.yourCartTitle]: isYourCart,
+          [styles.favoritesTitle]: isFavorites,
+          [styles.searchShortTitle]: isSearchShort,
+        })}
+      >
+        {title}
+
+        <div
+          className={classNames({
+            [styles.mainAuthor]: isMain,
+            [styles.yourCartAuthor]: isYourCart,
+            [styles.favoritesAuthor]: isFavorites,
+            [styles.searchShortAuthor]: isSearchShort,
+          })}
+        >
+          {authors}
+          {",  "}
+          {year}
+        </div>
+      </div>
+      <div
+        className={classNames({
+          [styles.mainPriceContainer]: isMain,
+          [styles.yourCartPriceContainer]: isYourCart,
+          [styles.favoritesPriceContainer]: isFavorites,
+          [styles.searchShortPriceContainer]: isSearchShort,
         })}
       >
         <div
           className={classNames({
-            [styles.mainImageContainer]: isMain,
-            [styles.yourCartImageContainer]: isYourCart,
-            [styles.favoritesImageContainer]: isFavorites,
-            [styles.searchShortImageContainer]: isSearchShort,
+            [styles.mainPrice]: isMain,
+            [styles.yourCartPrice]: isYourCart,
+            [styles.favoritesPrice]: isFavorites,
+            [styles.searchShortPrice]: isSearchShort,
           })}
         >
-          <img
-            src={image}
-            className={classNames({
-              [styles.mainImage]: isMain,
-              [styles.yourCartImage]: isYourCart,
-              [styles.favoritesImage]: isFavorites,
-              [styles.searchShortImage]: isSearchShort,
-            })}
-          ></img>
+          {price}
         </div>
-        <div
-          className={classNames({
-            [styles.mainTitle]: isMain,
-            [styles.yourCartTitle]: isYourCart,
-            [styles.favoritesTitle]: isFavorites,
-            [styles.searchShortTitle]: isSearchShort,
-          })}
-        >
-          {title}
 
+        {isYourCart ? null : (
           <div
             className={classNames({
-              [styles.mainAuthor]: isMain,
-              [styles.yourCartAuthor]: isYourCart,
-              [styles.favoritesAuthor]: isFavorites,
-              [styles.searchShortAuthor]: isSearchShort,
+              [styles.mainRatingContainer]: isMain,
+              [styles.favoritesRatingContainer]: isFavorites,
+              [styles.searchShortRatingContainer]: isSearchShort,
             })}
           >
-            {authors}
-            {",  "}
-            {year}
+            <RatingEmptyIcon />
+            <RatingEmptyIcon />
+            <RatingEmptyIcon />
+            <RatingEmptyIcon />
+            <RatingEmptyIcon />
           </div>
-        </div>
-        <div
-          className={classNames({
-            [styles.mainPriceContainer]: isMain,
-            [styles.yourCartPriceContainer]: isYourCart,
-            [styles.favoritesPriceContainer]: isFavorites,
-            [styles.searchShortPriceContainer]: isSearchShort,
-          })}
-        >
-          <div
-            className={classNames({
-              [styles.mainPrice]: isMain,
-              [styles.yourCartPrice]: isYourCart,
-              [styles.favoritesPrice]: isFavorites,
-              [styles.searchShortPrice]: isSearchShort,
-            })}
-          >
-            {price}
-          </div>
-
-          {isYourCart ? null : (
-            <div
-              className={classNames({
-                [styles.mainRatingContainer]: isMain,
-                [styles.favoritesRatingContainer]: isFavorites,
-                [styles.searchShortRatingContainer]: isSearchShort,
-              })}
-            >
-              <RatingEmptyIcon />
-              <RatingEmptyIcon />
-              <RatingEmptyIcon />
-              <RatingEmptyIcon />
-              <RatingEmptyIcon />
-            </div>
-          )}
-        </div>
+        )}
       </div>
+    </div>
   );
 };
 

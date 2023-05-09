@@ -32,7 +32,20 @@ const Header = () => {
 
   const onAuthButtonClick = () => {
     navigate(RoutesList.SignIn);
-  };
+    };
+    const onFavoritesClick = () => {
+        navigate(RoutesList.Favorites);
+    };
+    const onShoppingBagClick = () => {
+        navigate(RoutesList.Cart);
+    };
+    const onAccountClick = () => {
+        navigate(RoutesList.Account);
+    };
+    const onBookstoreClick = () => {
+        navigate(RoutesList.Home);
+    };
+
   const navButtonsList = useMemo(
     () => [
       {
@@ -54,8 +67,9 @@ const Header = () => {
   return (
     <>
       <div className={styles.headerContainer}>
-        <div className={styles.logo}>
-          <LogoIcon />
+              <div className={styles.logo}>
+                  <div onClick={onBookstoreClick}><LogoIcon /></div>
+          
         </div>
         <div className={styles.searchContainer}>
           <div className={styles.inputWithButton}>
@@ -65,10 +79,10 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className={styles.iconsContainer}>
-          <LikeIcon />
-          <ShoppingBagIcon />
-          <UserIcon />
+              <div className={styles.iconsContainer}>
+                  <div onClick={onFavoritesClick}><LikeIcon /></div>
+                  <div onClick={onShoppingBagClick}><ShoppingBagIcon /></div>
+                  <div onClick={onAccountClick}><UserIcon /></div>
         </div>
       </div>
       {/* <Button
