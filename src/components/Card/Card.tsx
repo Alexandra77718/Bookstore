@@ -146,10 +146,10 @@ const Card: FC<CardProps> = ({ card, size }) => {
               [styles.searchShortRatingContainer]: isSearchShort,
             })}
           >
-            <RatingEmptyIcon />
-            <RatingEmptyIcon />
-            <RatingEmptyIcon />
-            <RatingEmptyIcon />
+            <RatingIcon />
+            <RatingIcon />
+            <RatingIcon />
+            <RatingIcon />
             <RatingEmptyIcon />
           </div>
         )}

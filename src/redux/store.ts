@@ -9,6 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
     reducer: {
         card: cardReducer,
+        
     }, 
     middleware: [sagaMiddleware],
 });

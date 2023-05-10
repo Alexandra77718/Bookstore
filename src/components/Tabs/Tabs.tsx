@@ -1,14 +1,19 @@
 import React, {useState, FC, ReactNode } from 'react';
 import styles from './Tabs.module.scss';
 import classNames from 'classnames';
+import { TabsNames } from 'src/utils/@globalTypes';
 
-enum TabsNames {
+
+export type TabsProps =  {
+    title: string,
+    key: TabsNames;
+    disabled?: boolean,
+    tabsBlock: ReactNode;
+}
+enum TabsBlock {
     Description,
-    Authors,
-    Reviews,
-    SignIn,
-    SignUp,
-} 
+        SignIn,
+}
 
 export const TABS_LIST_DESCRIPTION = [
     {
@@ -26,7 +31,7 @@ export const TABS_LIST_DESCRIPTION = [
         disabled: false,
         key: TabsNames.Reviews,
     },
-]
+];
 export const TABS_LIST_SIGN_IN = [
     {
         title: 'Sign In',
@@ -38,17 +43,7 @@ export const TABS_LIST_SIGN_IN = [
         disabled: false,
         key: TabsNames.SignUp,
     },
-]
-export type TabsProps =  {
-    title: string,
-    key: TabsNames;
-    disabled?: boolean,
-    tabsBlock: ReactNode;
-}
-enum TabsBlock {
-    Description,
-        SignIn,
-}
+];
 
 const TabsStyles = {
     [TabsBlock.Description]: styles.Description,

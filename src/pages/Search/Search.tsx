@@ -9,7 +9,7 @@ import { getAllPosts } from "src/redux/reducers/cardSlice";
 
 
 const Search = () => {
-  const query: string = "beginners";
+  const query: string = " ";
   const [cardsList, setCardsList] = useState<CardType[]>([]);
 
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Search = () => {
   return (
     <div>
       <Title title={`${query}` + " " + "Search results"} />
-      <div className={styles.found}>{"Found 196 books"}</div>
+      <div className={styles.found}>{" "}</div>
       <CardsList cardsList={cardsList} size={CardSize.Main} />
     </div>
   );

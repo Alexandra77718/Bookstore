@@ -1,8 +1,8 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./BookCard.module.scss";
 import { RatingEmptyIcon } from "src/assets/icons/RatingEmptyIcon";
 import { RatingIcon } from "src/assets/icons/RatingIcon";
-import { ButtonType, CardType } from "src/utils/@globalTypes";
+import { ButtonType, CardListType, CardType } from "src/utils/@globalTypes";
 import Tabs from "../Tabs/Tabs";
 import { FacebookIcon } from "src/assets/icons/FacebookIcon";
 import { TwitterIcon } from "src/assets/icons/TwitterIcon";
@@ -26,6 +26,11 @@ import { RoutesList } from "src/pages/Router";
 import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
 import { BookCardProps, BookCardType } from "../Card/types";
 import YourCart from "src/pages/YourCart/YourCart";
+import CardsList from "../CardsList/CardsList";
+import { type } from "os";
+import Card from "../Card/Card";
+
+
 
 enum TabsNames {
   Description,
@@ -40,7 +45,23 @@ enum TabsBlock {
   SignIn,
 }
 
+
 const BookCard = () => {
+
+    const [activeTab, setActiveTab] = useState(TabsNames.Description);
+    const onTabClick = (key: TabsNames) => () => setActiveTab(key);
+
+    // const getActiveTabContent = () => {
+    //     switch (activeTab) {
+    //         case TabsNames.Description: 
+    //             return singlePost?.desc
+    //         case TabsNames.Authors: 
+    //             return singlePost?.authors
+    //         case TabsNames.Reviews:
+    //             return singlePost?.pdf?.["Chapter 2"]
+    // }
+    // };
+ 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
@@ -135,7 +156,12 @@ const BookCard = () => {
           key={TabsNames.Description}
           tabsBlock={TabsBlock.Description}
         />
-        <div className={styles.content}></div>
+              <div className={styles.content}>
+     
+
+
+
+        </div>
       </div>
       <div className={styles.iconContainer}>
         <FacebookIcon />
