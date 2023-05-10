@@ -1,5 +1,4 @@
-import { CardProps } from "../Card/types";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./BookCard.module.scss";
 import { RatingEmptyIcon } from "src/assets/icons/RatingEmptyIcon";
 import { RatingIcon } from "src/assets/icons/RatingIcon";
@@ -13,22 +12,20 @@ import { LikeCartIcon } from "src/assets/icons/LikeCartIcon";
 import Button from "../Button/Button";
 import { MoreDetails } from "src/assets/icons/MoreDetails";
 import Similar from "../Similar/Similar";
-import store from "src/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   CardSelectors,
   setSavedPosts,
   setStatus,
+  getSinglePost,
+  setSinglePost,
 } from "src/redux/reducers/cardSlice";
 import { ActiveLikeCartIcon } from "src/assets/icons/ActiveLikeCartIcon";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { RoutesList } from "src/pages/Router";
-
-
-
-type BookCardProps = {
-  card: CardType;
-};
+import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
+import { BookCardProps, BookCardType } from "../Card/types";
+import YourCart from "src/pages/YourCart/YourCart";
 
 enum TabsNames {
   Description,
@@ -43,39 +40,49 @@ enum TabsBlock {
   SignIn,
 }
 
-const BookCard: FC<BookCardProps> = ({ card }) => {
-  const { image, title, authors, year, price, rating, isbn13 } = card;
+const BookCard = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
+  const { isbn13 } = params;
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-  const onStatusClick = () => {
-    if (card) {
-      dispatch(setStatus(card));
-    }
-  };
-
+  const singlePost = useSelector(CardSelectors.getSinglePost);
   const likedCards = useSelector(CardSelectors.getLikedCards);
-  const likedIndex = likedCards.findIndex(
-    (post) => post.isbn13 === card.isbn13
-  );
-
-    // реализация SavedPosts
-    const onSavedCartClick= () => {
-        dispatch(setSavedPosts({ card }));
-        navigate(RoutesList.Cart);
+  useEffect(() => {
+    if (isbn13) {
+      dispatch(getSinglePost(isbn13));
+    }
+  }, []);
+  
+  const onStatusClick = () => {
+      if (singlePost) {
+          dispatch(setStatus(singlePost));
+        }
     };
     
-      const savedPosts = useSelector(CardSelectors.getSavedPosts);
-      const savedPostsIndex = savedPosts.findIndex(
-        (post) => post.isbn13 === card.isbn13
+    const likedIndex = likedCards.findIndex(
+        (post) => post.isbn13 === singlePost?.isbn13
         );
+        // реализация сохранения поста в корзину YourCart
+        const savedPosts = useSelector(CardSelectors.getSavedPosts);
+        const savedPostsIndex = savedPosts.findIndex((post) => post.isbn13 === singlePost?.isbn13);
 
-  return (
+  const onSavedCartClick = () => {
+    if (singlePost) {
+      dispatch(setSavedPosts(singlePost));
+    }
+    navigate(RoutesList.Cart);
+  };
+
+
+  return singlePost ? (
     <div>
+      <div className={styles.back}>
+        <BackArrowIcon />
+      </div>
       <div className={styles.cardContainer}>
         <div className={styles.titlePageContainer}>
-          <div className={styles.titlePage}>{title}</div>
+          <div className={styles.titlePage}>{singlePost.title}</div>
         </div>
         <div className={styles.imageInfo}>
           <div className={styles.imageContainer}>
@@ -85,30 +92,30 @@ const BookCard: FC<BookCardProps> = ({ card }) => {
               </div>
             </div>
 
-            <img src={image} className={styles.image} />
+            <img src={singlePost.image} className={styles.image} />
           </div>
           <div className={styles.infoContainer}>
             <div className={styles.priceString}>
-              <div className={styles.price}>{price}</div>
+              <div className={styles.price}>{singlePost.price}</div>
               <div className={styles.rating}>
                 <RatingEmptyIcon />
               </div>
             </div>
             <div className={styles.String}>
               <div className={styles.detail}></div>
-              <div className={styles.value}>{authors}</div>
+              <div className={styles.value}>{singlePost.authors}</div>
             </div>
             <div className={styles.String}>
               <div className={styles.detail}></div>
-              <div className={styles.value}>{authors}</div>
+              <div className={styles.value}>{singlePost.publisher}</div>
             </div>
             <div className={styles.String}>
               <div className={styles.detail}></div>
-              <div className={styles.value}>{authors}</div>
+              <div className={styles.value}>{singlePost.pages}</div>
             </div>
             <div className={styles.String}>
               <div className={styles.detail}></div>
-              <div className={styles.value}>{authors}</div>
+                          <div className={styles.value}>{singlePost.pdf?.["Chapter 2"]}</div>
             </div>
             <div className={styles.more}>
               {"More details"}
@@ -139,6 +146,6 @@ const BookCard: FC<BookCardProps> = ({ card }) => {
       <Subscribe />
       <Similar />
     </div>
-  );
+  ) : null;
 };
 export default BookCard;

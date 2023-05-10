@@ -12,13 +12,10 @@ import { CardSelectors } from "src/redux/reducers/cardSlice";
 
 const YourCart = () => {
   const onCheckOutClick = () => {
-    {
-      <link href="https://pay.raschet.by/" rel="stylesheet"></link>;
-    }
-  };
+          <link href="https://pay.raschet.by/" rel="stylesheet"></link>;
+      };
 
-    
-  const savedCardList = useSelector(CardSelectors.getSavedPosts);
+        const savedPosts = useSelector(CardSelectors.getSavedPosts);
     
   return (
     <div className={styles.container}>
@@ -26,9 +23,9 @@ const YourCart = () => {
         <BackArrowIcon />
       </div>
       <Title title="Your cart" />
-          <CardsList cardsList={savedCardList} size={CardSize.YourCart} />
+          <CardsList cardsList={savedPosts} size={CardSize.YourCart} />
 
-          {savedCardList ? (
+          {savedPosts ? (
               <div className={styles.lastChild}>
                   <div className={styles.totalContainer}>
                       <div className={styles.sumTotal}>

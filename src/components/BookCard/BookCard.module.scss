@@ -18,6 +18,18 @@
   text-transform: uppercase;
   color: $primary;
 }
+.back {
+    margin-bottom: 37px;
+    &:hover {
+        svg > path {
+          cursor: pointer;
+          stroke: $secondary;
+        }
+      }
+}
+.title {
+    margin-bottom: 49px;
+}
 .imageInfo {
   width: 1120px;
   height: 472px;
