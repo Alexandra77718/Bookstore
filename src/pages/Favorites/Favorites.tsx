@@ -8,9 +8,9 @@ import { RoutesList } from "../Router";
 import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "src/components/Card/Card";
-import { MOCK_ARRAY } from "../Home/Home";
 import CardsList from "src/components/CardsList/CardsList";
 import { CardSelectors, setStatus } from "src/redux/reducers/cardSlice";
+import Popular from "src/components/Popular/Popular";
 
 
 
@@ -26,6 +26,7 @@ const Favorites = () => {
         </div>
         <Title title="Favorites" />
             <CardsList cardsList={favoritesList} size={CardSize.Favorites} />
+            <Popular />
         </div>
     )
 }

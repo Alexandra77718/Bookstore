@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./Card.module.scss";
 import { CardProps, CardSize, CardType } from "./types";
 import { RatingEmptyIcon } from "src/assets/icons/RatingEmptyIcon";
@@ -7,12 +7,19 @@ import classNames from "classnames";
 import { LikeCartIcon } from "src/assets/icons/LikeCartIcon";
 import {
   CardSelectors,
+  getSinglePost,
   setSavedPosts,
   setStatus,
 } from "src/redux/reducers/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import store from "src/redux/store";
 import { ActiveLikeCartIcon } from "src/assets/icons/ActiveLikeCartIcon";
+import { useNavigate } from "react-router-dom";
+import { RoutesList } from "src/pages/Router";
+import { CloseIcon } from "src/assets/icons/CloseIcon";
+import YourCart from "src/pages/YourCart/YourCart";
+import { MinusIcon } from "src/assets/icons/MinusIcon";
+import { PlusIcon } from "src/assets/icons/PlusIcon";
 
 const Card: FC<CardProps> = ({ card, size }) => {
   const { image, title, authors, year, price, rating, isbn13 } = card;
@@ -22,19 +29,34 @@ const Card: FC<CardProps> = ({ card, size }) => {
   const isFavorites = size === CardSize.Favorites;
   const isSearchShort = size === CardSize.SearchShort;
 
-    const dispatch = useDispatch();
-    // реализация likedCards
+  const navigate = useNavigate();
+
+  // реализация likedCards
+  const dispatch = useDispatch();
   const onStatusClick = () => {
     if (card) {
       dispatch(setStatus(card));
     }
   };
-    const likedCards = useSelector(CardSelectors.getLikedCards);
-    
-    const likedIndex = likedCards.findIndex(
-        (post) => post.isbn13 === card.isbn13
-    );
- 
+  const likedCards = useSelector(CardSelectors.getLikedCards);
+
+  const likedIndex = likedCards.findIndex(
+    (post) => post.isbn13 === card.isbn13
+  );
+
+  const onBookCardClick = () => {
+    navigate(`/books/${isbn13}`);
+  };
+
+
+  const onYourCartDeleteClick = () => {
+    if (card) {
+      dispatch(setSavedPosts(card));
+    }
+  };
+
+
+
   return (
     <div
       className={classNames({
@@ -58,6 +80,7 @@ const Card: FC<CardProps> = ({ card, size }) => {
           </div>
         </div>
         <img
+          onClick={onBookCardClick}
           src={image}
           className={classNames({
             [styles.mainImage]: isMain,
@@ -68,6 +91,7 @@ const Card: FC<CardProps> = ({ card, size }) => {
         ></img>
       </div>
       <div
+        onClick={onBookCardClick}
         className={classNames({
           [styles.mainTitle]: isMain,
           [styles.yourCartTitle]: isYourCart,
@@ -89,6 +113,11 @@ const Card: FC<CardProps> = ({ card, size }) => {
           {",  "}
           {year}
         </div>
+        {isYourCart ? (
+          <div className={styles.cartCount}>
+            <PlusIcon /><div></div><MinusIcon />
+          </div>
+        ) : null}
       </div>
       <div
         className={classNames({
@@ -108,7 +137,7 @@ const Card: FC<CardProps> = ({ card, size }) => {
         >
           {price}
         </div>
-
+        
         {isYourCart ? null : (
           <div
             className={classNames({
@@ -124,7 +153,12 @@ const Card: FC<CardProps> = ({ card, size }) => {
             <RatingEmptyIcon />
           </div>
         )}
-      </div>
+          </div>
+          {isYourCart ? (
+          <div onClick={onYourCartDeleteClick} className={styles.youCartDelete}>
+            <CloseIcon />
+          </div>
+        ) : null}
     </div>
   );
 };

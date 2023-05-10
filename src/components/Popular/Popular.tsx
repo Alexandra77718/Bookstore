@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react";
-import styles from "./Similar.module.scss";
+import styles from "./Popular.module.scss";
 import Title from "../Title/Title";
 import Button from "../Button/Button";
 import { ButtonType } from "src/utils/@globalTypes";
@@ -10,7 +10,7 @@ import { CardSize } from "../Card/types";
 import { CardSelectors, getAllPosts } from "src/redux/reducers/cardSlice";
 
 
-const Similar = () => {
+const Popular = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllPosts())
@@ -39,4 +39,4 @@ const postsList = useSelector(CardSelectors.getAllPosts);
     </div>
   );
 };
-export default Similar;
+export default Popular;

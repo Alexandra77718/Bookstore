@@ -22,7 +22,7 @@
   object-fit: contain;
   background-color: $blue;
   position: relative;
-  &:hover {
+   &:hover {
     .likeContainer {
       display: flex;
       justify-content: center;
@@ -53,6 +53,7 @@
 .mainImage {
   width: 226px;
   height: 264px;
+  cursor: pointer;
 }
 
 .mainTitle {
@@ -64,6 +65,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
+  cursor: pointer;
 }
 .mainAuthor {
   width: 226px;
@@ -121,6 +123,7 @@
 .yourCartImage {
   width: 164px;
   height: 192px;
+  cursor: pointer;
 }
 .yourCartTitle {
   width: 450px;
@@ -131,6 +134,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
+  cursor: pointer;
 }
 .yourCartAuthor {
   width: 226px;
@@ -147,7 +151,7 @@
 .yourCartPriceContainer {
   width: 87px;
   height: 60px;
-  margin: 98px 0 0 130px;
+  margin: 55px 0 0 130px;
 }
 .yourCartPrice {
   font-family: "Bebas Neue";
@@ -180,6 +184,7 @@
 .favoritesImage {
   width: 164px;
   height: 192px;
+  cursor: pointer;
 }
 .favoritesTitle {
   width: 450px;
@@ -190,6 +195,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
+  cursor: pointer;
 }
 .favoritesAuthor {
   width: 226px;
@@ -243,6 +249,7 @@
 .searchShortImage {
   width: 52px;
   height: 60px;
+  cursor: pointer;
 }
 .searchShortTitle {
   width: 400px;
@@ -253,4 +260,23 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 32px;
+  cursor: pointer;
+}
+.youCartDelete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+width: 56px;
+height: 56px;
+margin: 59px 0 0 113px;
+svg:hover{
+    stroke: $primary;
+}
+}
+.cartCount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 168px;
+    height: 56px;
 }
