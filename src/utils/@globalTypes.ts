@@ -26,7 +26,7 @@ export enum CardSize {
     YourCart = 1,
     Favorites = 2,
    SearchShort = 3,
-}
+};
 
 export enum ButtonType {
     Primary = "Primary",
@@ -34,4 +34,10 @@ export enum ButtonType {
     Like = "Like",
 };
 
-
+export enum TabsNames {
+    Description,
+    Authors,
+    Reviews,
+    SignIn,
+    SignUp,
+};

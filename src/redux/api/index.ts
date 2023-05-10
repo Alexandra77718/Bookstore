@@ -13,7 +13,6 @@ const getSinglePost = (isbn13: string) => {
 };
 
 
-
 export default {
     getAllPosts,
     getSinglePost,

@@ -25,7 +25,7 @@ const YourCart = () => {
       <Title title="Your cart" />
           <CardsList cardsList={savedPosts} size={CardSize.YourCart} />
 
-          {savedPosts ? (
+          {savedPosts.length > 0 ? (
               <div className={styles.lastChild}>
                   <div className={styles.totalContainer}>
                       <div className={styles.sumTotal}>

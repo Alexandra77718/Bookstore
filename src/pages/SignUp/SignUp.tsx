@@ -5,9 +5,12 @@ import Input from "src/components/Input";
 import classNames from "classnames";
 import Button from "src/components/Button";
 import { ButtonType } from "src/utils/@globalTypes";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RoutesList } from "../Router";
 import Tabs from "src/components/Tabs/Tabs";
+import { useDispatch } from "react-redux";
+
+
 enum TabsNames {
   Description,
   Authors,
@@ -42,16 +45,9 @@ const SingUp = () => {
   const onChangeConfirmPassword = (value: string) => {
     setConfirmPassword(value);
   };
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-//   const onSignUpClick = () => {
-//     dispatch(
-//       signUpUser({
-//         data: { username: name, email, password },
-//         callback: () => navigate(RoutesList.SignIn),
-//       })
-//     );
-//   };
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+  
   return (
     <div className={styles.container}>
       <Tabs
