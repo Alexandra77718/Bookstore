@@ -3,15 +3,15 @@ import styles from "./BookCard.module.scss";
 import { RatingEmptyIcon } from "src/assets/icons/RatingEmptyIcon";
 import { RatingIcon } from "src/assets/icons/RatingIcon";
 import { ButtonType, CardListType, CardType } from "src/utils/@globalTypes";
-import Tabs from "../Tabs/Tabs";
+import Tabs from "../../components/Tabs/Tabs";
 import { FacebookIcon } from "src/assets/icons/FacebookIcon";
 import { TwitterIcon } from "src/assets/icons/TwitterIcon";
 import { MoreIcon } from "src/assets/icons/MoreIcon";
-import Subscribe from "../Subscribe/Subscribe";
+import Subscribe from "../../components/Subscribe/Subscribe";
 import { LikeCartIcon } from "src/assets/icons/LikeCartIcon";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 import { MoreDetails } from "src/assets/icons/MoreDetails";
-import Similar from "../Similar/Similar";
+import Similar from "../../components/Similar/Similar";
 import { useDispatch, useSelector } from "react-redux";
 import {
   CardSelectors,
@@ -24,13 +24,11 @@ import { ActiveLikeCartIcon } from "src/assets/icons/ActiveLikeCartIcon";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { RoutesList } from "src/pages/Router";
 import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
-import { BookCardProps, BookCardType } from "../Card/types";
+import { BookCardProps, BookCardType } from "../../components/Card/types";
 import YourCart from "src/pages/YourCart/YourCart";
-import CardsList from "../CardsList/CardsList";
+import CardsList from "../../components/CardsList/CardsList";
 import { type } from "os";
-import Card from "../Card/Card";
-
-
+import Card from "../../components/Card/Card";
 
 enum TabsNames {
   Description,
@@ -45,23 +43,21 @@ enum TabsBlock {
   SignIn,
 }
 
-
 const BookCard = () => {
+  const [activeTab, setActiveTab] = useState(TabsNames.Description);
+  const onTabClick = (key: TabsNames) => () => setActiveTab(key);
 
-    const [activeTab, setActiveTab] = useState(TabsNames.Description);
-    const onTabClick = (key: TabsNames) => () => setActiveTab(key);
+//   const getCurrentList = () => {
+//       switch (activeTab) {
+//           case TabsNames.Description:
+//               return singlePost?.desc
+//           case TabsNames.Authors:
+//               return singlePost?.authors
+//           case TabsNames.Reviews:
+//               return singlePost?.pdf?.["Chapter 2"]
+//   }
+//   };
 
-    // const getActiveTabContent = () => {
-    //     switch (activeTab) {
-    //         case TabsNames.Description: 
-    //             return singlePost?.desc
-    //         case TabsNames.Authors: 
-    //             return singlePost?.authors
-    //         case TabsNames.Reviews:
-    //             return singlePost?.pdf?.["Chapter 2"]
-    // }
-    // };
- 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
@@ -74,19 +70,21 @@ const BookCard = () => {
       dispatch(getSinglePost(isbn13));
     }
   }, []);
-  
+
   const onStatusClick = () => {
-      if (singlePost) {
-          dispatch(setStatus(singlePost));
-        }
-    };
-    
-    const likedIndex = likedCards.findIndex(
-        (post) => post.isbn13 === singlePost?.isbn13
-        );
-        // реализация сохранения поста в корзину YourCart
-        const savedPosts = useSelector(CardSelectors.getSavedPosts);
-        const savedPostsIndex = savedPosts.findIndex((post) => post.isbn13 === singlePost?.isbn13);
+    if (singlePost) {
+      dispatch(setStatus(singlePost));
+    }
+  };
+
+  const likedIndex = likedCards.findIndex(
+    (post) => post.isbn13 === singlePost?.isbn13
+  );
+  // реализация сохранения поста в корзину YourCart
+  const savedPosts = useSelector(CardSelectors.getSavedPosts);
+  const savedPostsIndex = savedPosts.findIndex(
+    (post) => post.isbn13 === singlePost?.isbn13
+  );
 
   const onSavedCartClick = () => {
     if (singlePost) {
@@ -94,7 +92,6 @@ const BookCard = () => {
     }
     navigate(RoutesList.Cart);
   };
-
 
   return singlePost ? (
     <div>
@@ -136,7 +133,9 @@ const BookCard = () => {
             </div>
             <div className={styles.String}>
               <div className={styles.detail}></div>
-                          <div className={styles.value}>{singlePost.pdf?.["Chapter 2"]}</div>
+              <div className={styles.value}>
+                {singlePost.pdf?.["Chapter 2"]}
+              </div>
             </div>
             <div className={styles.more}>
               {"More details"}
@@ -157,10 +156,6 @@ const BookCard = () => {
           tabsBlock={TabsBlock.Description}
         />
               <div className={styles.content}>
-     
-
-
-
         </div>
       </div>
       <div className={styles.iconContainer}>
