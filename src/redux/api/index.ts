@@ -13,7 +13,12 @@ const getSinglePost = (isbn13: string) => {
 };
 
 
+const getSearchedPosts = (search?: string) => {
+    return API.get("/search/{query}", { limit: 12, search });
+  };
+
 export default {
     getAllPosts,
     getSinglePost,
+    getSearchedPosts,
 };

@@ -15,7 +15,7 @@ import BookCard from "src/pages/BookCard/BookCard";
 
 export enum RoutesList {
     Home = "/",
-    Search = "/search",
+    Search = "/search/{query}",
     Book = "/books/:isbn13",
   Cart = "/cart",
   Favorites = "/favorites",

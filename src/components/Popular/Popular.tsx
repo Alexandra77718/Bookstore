@@ -22,7 +22,7 @@ const postsList = useSelector(CardSelectors.getAllPosts);
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
-        <Title title={"Similar Book"} />
+        <Title title={"Popular Book"} />
         <div className={styles.arrowContainer}>
           <div className={styles.arrowBack}>
             <PopularArrowIcon />

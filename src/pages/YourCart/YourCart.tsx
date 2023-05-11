@@ -7,6 +7,7 @@ import { BackArrowIcon } from "src/assets/icons/BackArrowIcon";
 import CardsList from "src/components/CardsList/CardsList";
 import { useSelector } from "react-redux";
 import { CardSelectors } from "src/redux/reducers/cardSlice";
+import EmptyState from "src/components/EmptyState/EmptyState";
 
 
 
@@ -49,7 +50,7 @@ const YourCart = () => {
                       </div>
                   </div>
               </div>
-          ) : null}
+          ) : <EmptyState title="Sorry, there's no books" description='Try using search.'/>}
     </div>
   );
 };

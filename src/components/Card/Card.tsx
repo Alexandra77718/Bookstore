@@ -158,6 +158,11 @@ const Card: FC<CardProps> = ({ card, size }) => {
           <div onClick={onYourCartDeleteClick} className={styles.youCartDelete}>
             <CloseIcon />
           </div>
+          ) : null}
+          {isFavorites ? (
+          <div onClick={onYourCartDeleteClick} className={styles.youCartDelete}>
+            <LikeCartIcon />
+          </div>
         ) : null}
     </div>
   );
