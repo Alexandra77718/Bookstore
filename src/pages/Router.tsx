@@ -11,7 +11,7 @@ import Account from "./Account/Account";
 import Favorites from "./Favorites/Favorites";
 import YourCart from "./YourCart/YourCart";
 import Search from "./Search/Search";
-import BookCard from "src/components/BookCard/BookCard";
+import BookCard from "src/pages/BookCard/BookCard";
 
 export enum RoutesList {
     Home = "/",

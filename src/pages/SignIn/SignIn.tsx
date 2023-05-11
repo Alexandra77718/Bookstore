@@ -32,7 +32,8 @@ const SingIn = () => {
     setPassword(value);
   };
 
-  return (
+    return (
+      <div>
       <div className={styles.container}>
           <Tabs title="Sign In" key={TabsNames.SignIn} tabsBlock={TabsBlock.SignIn} />
           <div className={styles.text}>{'Your password has been changed !'}</div>
@@ -61,6 +62,7 @@ const SingIn = () => {
           </div>  
           </div>
           
+        </div>
         </div>
   );
 };
