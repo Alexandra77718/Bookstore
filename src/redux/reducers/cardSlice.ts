@@ -1,18 +1,23 @@
-import { CardType } from "./../../utils/@globalTypes";
+import { CardType, CardListType } from "./../../utils/@globalTypes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+
 
 type CardState = {
   likedCards: CardType[];
   savedPosts: CardType[];
   postsList: CardType[];
   singlePost: CardType | null;
+  searchedPosts: CardListType;
+  searchValue: string;
 };
 const initialState: CardState = {
   likedCards: [],
   savedPosts: [],
   postsList: [],
   singlePost: null,
+  searchedPosts: [],
+  searchValue: "",
 };
 const cardSlice = createSlice({
   name: "card",
@@ -47,6 +52,12 @@ const cardSlice = createSlice({
         state.savedPosts.splice(savedPostsIndex, 1);
       }
     },
+    getSearchedPosts: (state, action: PayloadAction<string>) => {
+      state.searchValue = action.payload;
+    },
+    setSearchedPosts: (state, action: PayloadAction<CardListType>) => {
+      state.searchedPosts = action.payload;
+    },
   },
 });
 
@@ -56,7 +67,9 @@ export const {
   getAllPosts,
   setAllPosts,
   getSinglePost,
-  setSinglePost,
+    setSinglePost,
+    setSearchedPosts,
+    getSearchedPosts,
 } = cardSlice.actions;
 export const cardName = cardSlice.name;
 export default cardSlice.reducer;
@@ -64,5 +77,7 @@ export const CardSelectors = {
   getLikedCards: (state: RootState) => state.card.likedCards,
   getSavedPosts: (state: RootState) => state.card.savedPosts,
   getAllPosts: (state: RootState) => state.card.postsList,
-  getSinglePost: (state: RootState) => state.card.singlePost,
+    getSinglePost: (state: RootState) => state.card.singlePost,
+    getSearchedPosts: (state: RootState) => state.card.searchedPosts,
+  getSearchValue: (state: RootState) => state.card.searchValue,
 };

@@ -14,7 +14,7 @@ type CardsListProps = {
 
 const CardsList: FC<CardsListProps> = ({cardsList, size}) => {
     
-    return cardsList.length > 0? (
+    return (
         <div>
             <div className={styles.cardsContainer}>
                 {cardsList.map((item, index) => {
@@ -26,7 +26,7 @@ const CardsList: FC<CardsListProps> = ({cardsList, size}) => {
                 
             </div>
         </div >
-    ) : <EmptyState title="Sorry, there's no books" description='Try using search.'/>
+    ) 
 }
 
 export default CardsList;

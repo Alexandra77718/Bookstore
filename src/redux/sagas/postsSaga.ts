@@ -1,10 +1,10 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { takeLatest, all, call, put } from 'redux-saga/effects';
-import { getAllPosts, getSinglePost, setAllPosts, setSinglePost } from '../reducers/cardSlice';
+import { getAllPosts, getSinglePost, setAllPosts, setSinglePost,  getSearchedPosts, setSearchedPosts, } from '../reducers/cardSlice';
 import { ApiResponse } from 'apisauce';
 import API from '../api';
 import { CardType } from 'src/utils/@globalTypes';
-
+import { AllPostsResponse } from "./@types";
 
 
 function* getAllPostsWorker() {
@@ -27,10 +27,24 @@ function* getSinglePostWorker(action: PayloadAction<string>) {
 }
 
 
+function* getSearchedPostsWorker(action: PayloadAction<string>) {
+    const { ok, data, problem }: ApiResponse<AllPostsResponse> = yield call(
+      API.getSearchedPosts,
+      action.payload
+    );
+    if (ok && data) {
+      yield put(setSearchedPosts(data.results));
+    } else {
+      console.warn("Error getting all posts", problem);
+    }
+  }
+
+
 export default function* postsSaga() {
     yield all([
         takeLatest(getAllPosts, getAllPostsWorker),
         takeLatest(getSinglePost, getSinglePostWorker),
+        takeLatest(getSearchedPosts, getSearchedPostsWorker),
     ]);
 
  }

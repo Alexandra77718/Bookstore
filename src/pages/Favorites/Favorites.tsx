@@ -19,7 +19,7 @@ const Favorites = () => {
     const favoritesList = useSelector(CardSelectors.getLikedCards);
     
 
-    return (
+    return (<div>
         <div className={styles.container}>
             <div className={styles.back}>
           <BackArrowIcon />
@@ -28,6 +28,7 @@ const Favorites = () => {
             <CardsList cardsList={favoritesList} size={CardSize.Favorites} />
             <Popular />
         </div>
+    </div>
     )
 }
 
